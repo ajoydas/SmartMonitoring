@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Location(models.Model):
+class Position(models.Model):
     tracker = models.IntegerField()
     lat = models.FloatField()
     lon = models.FloatField()
