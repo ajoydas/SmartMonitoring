@@ -38,5 +38,5 @@ def show_map(request):
         gmap.marker( lats[i], lons[i], '#FF0000',title="New marker")
 
     # Draw
-    gmap.draw("media/my_map.html")
-    return HttpResponse("Generated")
+    gmap.draw("media/map.html")
+    return render(request, 'view/show_map.html')

@@ -1,6 +1,7 @@
 djangorestframework
 markdown
 django-filter
+whitenoise
 mysqlclient
 googlemaps
 gmplot
