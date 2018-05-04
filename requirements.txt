@@ -5,3 +5,4 @@ whitenoise
 mysqlclient
 googlemaps
 gmplot
+django-phonenumber-field

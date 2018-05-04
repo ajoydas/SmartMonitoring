@@ -2,6 +2,16 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
+from api.models import Tracker
+from view.forms import TrackerForm
+
+
+def home(request):
+    print("In home view")
+    trackers = Tracker.objects.filter()
+    return render(request, 'view/home.html',{"trackers": trackers})
+
+
 def show_map(request):
     from gmplot import gmplot
 
@@ -40,3 +50,46 @@ def show_map(request):
     # Draw
     gmap.draw("media/map.html")
     return render(request, 'view/show_map.html')
+
+
+def tracker_add(request):
+    return None
+
+
+def tracker_view(request, module_id):
+    return None
+
+
+def tracker_edit(request, module_id):
+    print("In tracker edit")
+    tracker = Tracker.objects.filter(module_id=module_id).get()
+    if request.method == 'POST':
+        print("Tracker form submitted")
+        form = TrackerForm(request.POST)
+    else:
+        form = TrackerForm(instance=tracker, initial={
+            'module_id' : tracker.module_id,
+            'lat' : tracker.lat,
+            'lon': tracker.lon,
+            'password': tracker.password,
+            'tracked': tracker.tracked,
+            'locked' : tracker.locked,
+            'contact_num' :tracker.contact_num
+        })
+    return render(request, 'view/tracker_edit.html', {'form': form, "tracker": tracker})
+
+
+def tracker_delete(request, module_id):
+    return None
+
+
+def add_contacts(request):
+    return None
+
+
+def gen_pass(request):
+    return None
+
+
+def send_pass(request):
+    return None
