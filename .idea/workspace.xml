@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a633e0ba-e4cc-4270-815a-18eb8595d318" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/api/migrations/0002_auto_20180504_2115.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/templates/view/passwords_gen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/templates/view/tracker_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/templates/view/tracker_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/templates/view/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/view/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/templates/view/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/view/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/templates/view/tracker_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/view/tracker_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/templates/view/passwords_send.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/view/passwords_send.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/templates/view/base.html">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            <state relative-caret-position="136">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -63,8 +54,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="143" column="102" lean-forward="true" selection-start-line="143" selection-start-column="102" selection-end-line="143" selection-end-column="102" />
+            <state relative-caret-position="337">
+              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -127,14 +118,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passwords_gen.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="passwords_gen.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_gen.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="99">
               <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding>
                 <element signature="e#111#132#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="passwords_send.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_send.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="48" column="69" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -159,7 +159,6 @@
         <option value="$PROJECT_DIR$/DsdServer/urls.py" />
         <option value="$PROJECT_DIR$/DsdServer/settings.py" />
         <option value="$PROJECT_DIR$/view/templates/view/show_map.html" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/api/views.py" />
@@ -171,8 +170,10 @@
         <option value="$PROJECT_DIR$/api/models.py" />
         <option value="$PROJECT_DIR$/view/templates/view/home.html" />
         <option value="$PROJECT_DIR$/view/templates/view/tracker_view.html" />
-        <option value="$PROJECT_DIR$/view/views.py" />
         <option value="$PROJECT_DIR$/view/templates/view/passwords_gen.html" />
+        <option value="$PROJECT_DIR$/view/templates/view/passwords_send.html" />
+        <option value="$PROJECT_DIR$/view/views.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -185,7 +186,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="1380" />
     <option name="height" value="775" />
@@ -322,7 +323,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="0" width="1307" height="775" extended-state="6" />
+    <frame x="66" y="0" width="1307" height="775" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -333,7 +334,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.4867807" />
       <window_info anchor="bottom" id="manage.py@DsdServer" order="7" weight="0.32659408" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49918962" weight="0.2488336" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18123497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123497" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32945284" />
@@ -507,13 +508,6 @@
     <entry file="file://$PROJECT_DIR$/view/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/InstalledProgram/python36/Lib/site-packages/django/shortcuts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -647,23 +641,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_gen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding>
+            <element signature="e#111#132#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_send.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="69" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="143" column="102" lean-forward="true" selection-start-line="143" selection-start-column="102" selection-end-line="143" selection-end-column="102" />
+        <state relative-caret-position="337">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_gen.html">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding>
-            <element signature="e#111#132#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>

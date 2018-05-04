@@ -141,7 +141,7 @@ def gen_pass(request):
                                          + str(tracker.module_id))
 
                 else:
-                    messages.error(request, "Password Generated Successfully for tracker: "+ str(key))
+                    messages.error(request, "Password Generated Failed for tracker: "+ str(key))
 
             except Exception:
                 None
@@ -151,4 +151,25 @@ def gen_pass(request):
 
 
 def send_pass(request):
-    return None
+    if request.method == 'POST':
+        keys = request.POST.keys()
+        print(keys)
+        for key in keys:
+            try:
+                if int(key):
+                    print(key + " " + request.POST[key])
+                    tracker = get_object_or_404(Tracker, id=key)
+
+                    if request.POST[key] == 'selected':
+                        tracker.gen_password()
+                        messages.success(request, "Password Sent Successfully for tracker: "
+                                         + str(tracker.module_id))
+
+                else:
+                    messages.error(request, "Password Send Failed for tracker: "+ str(key))
+
+            except Exception:
+                None
+
+    trackers = Tracker.objects.filter()
+    return render(request, 'view/passwords_gen.html', {"trackers": trackers})

@@ -6,3 +6,4 @@ mysqlclient
 googlemaps
 gmplot
 django-phonenumber-field
+boto3
