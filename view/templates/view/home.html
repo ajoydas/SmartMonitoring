@@ -3,9 +3,18 @@
 
 {% block content %}
     <div id="content">
-
         <div style="padding: 40px">
-            <label>Trackers List:</label>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissable" style="margin-top: 30px">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                        </button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <h5>Trackers List:</h5>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -30,10 +39,10 @@
                         <td>{{ tracker.has_reached }}</td>
                         <td>{{ tracker.num_warnings }}</td>
                         <td>
-                            <button onclick='location.href="{% url 'view:tracker_view' tracker.module_id %}"'
+                            <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_view' tracker.id %}"'
                                     type="button">View
                             </button>
-                            <button onclick='location.href="{% url 'view:tracker_edit' tracker.module_id %}"'
+                            <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_edit' tracker.id %}"'
                                     type="button">Update
                             </button>
                         </td>

@@ -13,9 +13,9 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <h4 style="margin-top: 30px">{% trans 'Update Tracker Informations:' %}</h4>
+        <h4 style="margin-top: 30px">{% trans 'Add Tracker Informations:' %}</h4>
         <form style="margin-top: 30px; padding-left: 100px; padding-right: 100px" method="post"
-              action="{% url 'view:tracker_edit' tracker.id %}">
+              action="{% url 'view:tracker_add' %}">
             {% csrf_token %}
             {% for field in form.visible_fields %}
 

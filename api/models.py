@@ -58,6 +58,36 @@ class Tracker(models.Model):
         print("Generated Pass: "+self.password)
         self.save()
 
+    def gen_map(self):
+        if self.lat is None or self.lon is None or self.tracked == False:
+            return "None"
+
+        from gmplot import gmplot
+        # Place map
+        gmap = gmplot.GoogleMapPlotter(self.lat, self.lon, 10)
+        gmap.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
+
+        positions = Position.objects.filter(tracker=self)
+        lats = []
+        lons = []
+        times = []
+        for position in positions:
+            lats.append(position.lat)
+            lons.append(position.lon)
+            times.append(position.created_at)
+
+        gmap.plot(lats, lons, 'cornflowerblue', edge_width=10)
+
+        for i in range(0, 5):
+            title = "Point: "+str(i)+"  Lat: "+str(lats[i])+"  Lon: "+str(lons[i])+ "  Time: "+ str(times[i])
+            gmap.marker(lats[i], lons[i], '#FF0000', title=title)
+
+        mapfile = "/static/maps/map_"+str(self.id)+".html"
+        # Draw
+        gmap.draw("view"+ mapfile)
+
+        return mapfile
+
     def reset(self):
         self.lat = None
         self.lon = None

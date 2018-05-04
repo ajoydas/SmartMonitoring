@@ -1,0 +1,96 @@
+{% extends 'view/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <div>
+            <div style="margin-top: 20px">
+                <h5>Tracker Details :</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <label> Module Id : </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.module_id }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <label>Is Tracked?: </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.tracked }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <label> Password : </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.password }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <label>Contact Number: </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.contact_num }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <label> Is Locked? : </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.locked }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <label>Is Online?: </label>
+                </div>
+                <div class="col-sm-2">
+                    <p>
+                        {{ tracker.is_online }}
+                    </p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+             <div class="row">
+                <div class="col" align="center">
+                    <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_edit' tracker.id %}"'
+                                    type="button">Update
+                    </button>
+                </div>
+                <div class="col" align="center">
+                    <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_delete' tracker.id %}"'
+                                    type="button">Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px">
+            <h5>Map:</h5>
+        </div>
+        <div id="map" style="margin-bottom: 20px">
+        </div>
+    </div>
+    <script>
+        document.getElementById("map").innerHTML =
+            '<object type="text/html" style="height: 600px; width: 100%" data="{{ mapfile }}" ></object>';
+    </script>
+{% endblock %}
