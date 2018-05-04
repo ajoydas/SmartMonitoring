@@ -1,3 +1,4 @@
+from decouple import config
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -154,6 +155,21 @@ def send_pass(request):
     if request.method == 'POST':
         keys = request.POST.keys()
         print(keys)
+
+        try:
+            import boto3
+
+            # Create an SNS client
+            client = boto3.client(
+                "sns",
+                aws_access_key_id = config('AWS_ACCESS_KEY_ID'),
+                aws_secret_access_key = config('AWS_SECRET_ACCESS_KEY'),
+                region_name="us-east-1"
+            )
+        except Exception as err:
+            print(err)
+            messages.error(request, "AWS config failed")
+
         for key in keys:
             try:
                 if int(key):
@@ -161,15 +177,25 @@ def send_pass(request):
                     tracker = get_object_or_404(Tracker, id=key)
 
                     if request.POST[key] == 'selected':
-                        tracker.gen_password()
-                        messages.success(request, "Password Sent Successfully for tracker: "
-                                         + str(tracker.module_id))
+                        # Send your sms message.
+                        try:
+                            client.publish(
+                                PhoneNumber= str(tracker.contact_num),
+                                Message="The password for tracker: "+str(tracker.module_id)+" is: "+tracker.password
+                            )
+
+                            messages.success(request, "Password Sent Successfully for tracker: "
+                                             + str(tracker.module_id))
+                        except Exception as err:
+                            print(err)
+                            messages.error(request, "Password Send Failed for tracker: " + str(key)+
+                                           " Error: "+str(err))
 
                 else:
                     messages.error(request, "Password Send Failed for tracker: "+ str(key))
 
-            except Exception:
+            except Exception as err:
                 None
 
     trackers = Tracker.objects.filter()
-    return render(request, 'view/passwords_gen.html', {"trackers": trackers})
+    return render(request, 'view/passwords_send.html', {"trackers": trackers})

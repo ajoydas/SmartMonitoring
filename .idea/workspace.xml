@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a633e0ba-e4cc-4270-815a-18eb8595d318" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/templates/view/passwords_send.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/view/passwords_send.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,13 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="721">
+              <caret line="191" column="43" selection-start-line="191" selection-start-column="43" selection-end-line="191" selection-end-column="43" />
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+              <caret line="3" column="21" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -88,7 +89,7 @@
       <file leaf-file-name="tracker_add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/templates/view/tracker_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="136">
               <caret line="14" column="19" selection-start-line="6" selection-start-column="8" selection-end-line="14" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#!!top" expanded="true" />
@@ -98,38 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tracker_view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/templates/view/tracker_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
-              <folding>
-                <element signature="e#135#159#0#HTML" expanded="true" />
-                <element signature="e#2540#2707#0#HTML" />
-                <element signature="e#972#996#0#HTML" expanded="true" />
-                <element signature="e#1059#1086#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="passwords_gen.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_gen.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-              <folding>
-                <element signature="e#111#132#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="passwords_send.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_send.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="48" column="69" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="69" />
+            <state relative-caret-position="170">
+              <caret line="49" column="63" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -164,11 +138,11 @@
         <option value="$PROJECT_DIR$/view/templates/view/home.html" />
         <option value="$PROJECT_DIR$/view/templates/view/tracker_view.html" />
         <option value="$PROJECT_DIR$/view/templates/view/passwords_gen.html" />
-        <option value="$PROJECT_DIR$/view/templates/view/passwords_send.html" />
-        <option value="$PROJECT_DIR$/view/views.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/view/templates/view/passwords_send.html" />
+        <option value="$PROJECT_DIR$/view/views.py" />
       </list>
     </option>
   </component>
@@ -326,10 +300,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32945284" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4867807" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4867807" />
       <window_info anchor="bottom" id="manage.py@DsdServer" order="7" weight="0.32659408" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49918962" visible="true" weight="0.2488336" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123497" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49918962" weight="0.2488336" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18123497" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32945284" />
@@ -538,16 +512,6 @@
         <state relative-caret-position="-357" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/templates/view/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
@@ -588,14 +552,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/templates/view/tracker_add.html">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="19" selection-start-line="6" selection-start-column="8" selection-end-line="14" selection-end-column="19" />
+          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
           <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-262">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -614,7 +608,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_gen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="-112">
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding>
             <element signature="e#111#132#0#HTML" expanded="true" />
@@ -624,49 +618,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/templates/view/passwords_send.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="48" column="69" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="69" />
+        <state relative-caret-position="170">
+          <caret line="49" column="63" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/view/templates/view/tracker_add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+          <caret line="14" column="19" selection-start-line="6" selection-start-column="8" selection-end-line="14" selection-end-column="19" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
+        <state relative-caret-position="721">
+          <caret line="191" column="43" selection-start-line="191" selection-start-column="43" selection-end-line="191" selection-end-column="43" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>
