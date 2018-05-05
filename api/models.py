@@ -78,7 +78,7 @@ class Tracker(models.Model):
 
         gmap.plot(lats, lons, 'cornflowerblue', edge_width=10)
 
-        for i in range(0, 5):
+        for i in range(0, len(lats)):
             title = "Point: "+str(i)+"  Lat: "+str(lats[i])+"  Lon: "+str(lons[i])+ "  Time: "+ str(times[i])
             gmap.marker(lats[i], lons[i], '#FF0000', title=title)
 
@@ -94,6 +94,7 @@ class Tracker(models.Model):
         self.tracked = False
         self.locked = False
         self.password = None
+        Position.objects.filter(tracker= self).all().delete()
         WarningEvent.objects.filter(position__tracker=self).all().delete()
         self.save()
 

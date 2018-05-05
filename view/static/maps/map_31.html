@@ -6,7 +6,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
 <script type="text/javascript">
 	function initialize() {
-		var centerlatlng = new google.maps.LatLng(23.534800, 90.236000);
+		var centerlatlng = new google.maps.LatLng(23.734800, 90.236000);
 		var myOptions = {
 			zoom: 10,
 			center: centerlatlng,
@@ -14,47 +14,57 @@
 		};
 		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-		var latlng = new google.maps.LatLng(23.534800, 90.236000);
+		var latlng = new google.maps.LatLng(23.734800, 90.236000);
 		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
 		var marker = new google.maps.Marker({
-		title: "Point: 0  Lat: 23.5348  Lon: 90.236  Time: 2018-05-04 08:22:37.805237+00:00",
+		title: "Point: 0  Lat: 23.7348  Lon: 90.236  Time: 2018-05-04 08:22:44.690927+00:00",
 		icon: img,
 		position: latlng
 		});
 		marker.setMap(map);
 
-		var latlng = new google.maps.LatLng(23.334800, 90.436000);
+		var latlng = new google.maps.LatLng(23.634800, 90.336000);
 		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
 		var marker = new google.maps.Marker({
-		title: "Point: 1  Lat: 23.3348  Lon: 90.436  Time: 2018-05-04 08:22:39.057017+00:00",
+		title: "Point: 1  Lat: 23.6348  Lon: 90.336  Time: 2018-05-04 08:22:45.325270+00:00",
 		icon: img,
 		position: latlng
 		});
 		marker.setMap(map);
 
-		var latlng = new google.maps.LatLng(23.234800, 90.536000);
+		var latlng = new google.maps.LatLng(23.534800, 90.436000);
 		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
 		var marker = new google.maps.Marker({
-		title: "Point: 2  Lat: 23.2348  Lon: 90.536  Time: 2018-05-04 08:22:39.676296+00:00",
+		title: "Point: 2  Lat: 23.5348  Lon: 90.436  Time: 2018-05-04 08:22:45.936905+00:00",
 		icon: img,
 		position: latlng
 		});
 		marker.setMap(map);
 
-		var latlng = new google.maps.LatLng(23.134800, 90.636000);
+		var latlng = new google.maps.LatLng(23.434800, 90.536000);
 		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
 		var marker = new google.maps.Marker({
-		title: "Point: 3  Lat: 23.1348  Lon: 90.636  Time: 2018-05-04 08:22:40.286595+00:00",
+		title: "Point: 3  Lat: 23.4348  Lon: 90.536  Time: 2018-05-04 08:22:46.574909+00:00",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(23.334800, 90.636000);
+		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
+		var marker = new google.maps.Marker({
+		title: "Point: 4  Lat: 23.3348  Lon: 90.636  Time: 2018-05-04 08:22:47.248707+00:00",
 		icon: img,
 		position: latlng
 		});
 		marker.setMap(map);
 
 var PolylineCoordinates = [
-new google.maps.LatLng(23.534800, 90.236000),
-new google.maps.LatLng(23.334800, 90.436000),
-new google.maps.LatLng(23.234800, 90.536000),
-new google.maps.LatLng(23.134800, 90.636000),
+new google.maps.LatLng(23.734800, 90.236000),
+new google.maps.LatLng(23.634800, 90.336000),
+new google.maps.LatLng(23.534800, 90.436000),
+new google.maps.LatLng(23.434800, 90.536000),
+new google.maps.LatLng(23.334800, 90.636000),
 ];
 
 var Path = new google.maps.Polyline({

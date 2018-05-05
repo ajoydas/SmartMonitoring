@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-from api.models import Tracker
+from api.models import Tracker, Position
 from view.forms import TrackerForm
 from django.contrib import messages
 
@@ -122,6 +122,13 @@ def tracker_delete(request, tracker_id):
     return redirect('view:home')
 
 
+def tracker_reset(request, tracker_id):
+    tracker = get_object_or_404(Tracker, id=tracker_id)
+    tracker.reset()
+    messages.success(request, 'The tracker has been reset successfully.')
+    return redirect('view:home')
+
+
 def add_contacts(request):
     return None
 
@@ -199,3 +206,19 @@ def send_pass(request):
 
     trackers = Tracker.objects.filter()
     return render(request, 'view/passwords_send.html', {"trackers": trackers})
+
+
+def tracker_view_positions(request, tracker_id):
+    tracker = get_object_or_404(Tracker, id=tracker_id)
+    positions = Position.objects.filter(tracker=tracker).order_by('-created_at')
+    return render(request, 'view/tracker_view_positions.html', {"positions":positions, "tracker": tracker})
+
+
+def position_delete(request, position_id):
+    position = get_object_or_404(Position, id=position_id)
+    position.delete()
+    messages.success(request, 'The position point has been removed successfully.')
+    positions = Position.objects.filter(tracker=position.tracker).order_by('-created_at')
+    return render(request, 'view/tracker_view_positions.html', {"positions":positions})
+
+
