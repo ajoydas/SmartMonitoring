@@ -7,3 +7,4 @@ googlemaps
 gmplot
 django-phonenumber-field
 boto3
+python-decouple

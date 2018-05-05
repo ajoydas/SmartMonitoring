@@ -18,7 +18,7 @@ def validate_password(request, tracker, lat, lon, password):
     tracker = get_object_or_404(Tracker, module_id=tracker)
     position = Position(tracker=tracker, lat=lat, lon=lon)
     position.save()
-    if int(password) == tracker.password:
+    if password == tracker.password:
         return HttpResponse("success")
 
     event = WarningEvent(position=position, password = password)
