@@ -32,17 +32,43 @@
                 {% for tracker in trackers %}
                     <tr>
                         <th scope="row">{{ tracker.id }}</th>
-                        <td>{{ tracker.module_id }}</td>
-                        <td>{{ tracker.tracked }}</td>
-                        <td>{{ tracker.is_online }}</td>
-                        <td>{{ tracker.locked }}</td>
-                        <td>{{ tracker.has_reached }}</td>
-                        <td>{{ tracker.num_warnings }}</td>
+                        <td align="center">{{ tracker.module_id }}</td>
+                        <td align="center">
+                            {% if tracker.tracked %}
+                                <i class="fas fa-check" style="color:green"></i>
+                            {% else %}
+                                <i class="fas fa-times" style="color:red"></i>
+                            {% endif %}
+                        </td>
+                        <td align="center">
+                            {% if tracker.is_online %}
+                                <i class="fas fa-check" style="color:green"></i>
+                            {% else %}
+                                <i class="fas fa-times" style="color:red"></i>
+                            {% endif %}
+                        </td>
+                        <td align="center">
+                            {% if tracker.locked %}
+                                <i class="fas fa-check" style="color:green"></i>
+                            {% else %}
+                                <i class="fas fa-times" style="color:red"></i>
+                            {% endif %}
+                        </td>
+                        <td align="center">
+                            {% if tracker.has_reached %}
+                                <i class="fas fa-check" style="color:green"></i>
+                            {% else %}
+                                <i class="fas fa-times" style="color:red"></i>
+                            {% endif %}
+                        </td>
+                        <td align="center">{{ tracker.num_warnings }}</td>
                         <td>
-                            <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_view' tracker.id %}"'
+                            <button class="btn btn-primary"
+                                    onclick='location.href="{% url 'view:tracker_view' tracker.id %}"'
                                     type="button">View
                             </button>
-                            <button class="btn btn-primary" onclick='location.href="{% url 'view:tracker_edit' tracker.id %}"'
+                            <button class="btn btn-primary"
+                                    onclick='location.href="{% url 'view:tracker_edit' tracker.id %}"'
                                     type="button">Update
                             </button>
                         </td>

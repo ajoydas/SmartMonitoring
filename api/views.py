@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from api.models import Position, Tracker, WarningEvent
 from django.views.decorators.csrf import csrf_exempt
@@ -7,15 +7,22 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def store_location(request, tracker, lat, lon):
+    tracker = get_object_or_404(Tracker, module_id=tracker)
     position = Position(tracker=tracker, lat=lat, lon=lon)
     position.save()
     return HttpResponse("tracker:"+str(tracker)+" lat:"+str(lat)+" lon:"+str(lon))
 
 
 @csrf_exempt
-def validate_password(request, tracker, password):
-    if int(tracker) == 12 and int(password) == 234:
+def validate_password(request, tracker, lat, lon, password):
+    tracker = get_object_or_404(Tracker, module_id=tracker)
+    position = Position(tracker=tracker, lat=lat, lon=lon)
+    position.save()
+    if int(password) == tracker.password:
         return HttpResponse("success")
+
+    event = WarningEvent(position=position, password = password)
+    event.save()
     return HttpResponse("error")
 
 
