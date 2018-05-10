@@ -1,3 +1,7 @@
+from datetime import datetime, timezone
+
+import pytz
+from bs4 import BeautifulSoup
 from decouple import config
 from django.db.models import Q
 from django.http import HttpResponse
@@ -244,4 +248,57 @@ def position_delete(request, position_id):
     positions = Position.objects.filter(tracker=position.tracker).order_by('-created_at')
     return render(request, 'view/tracker_view_positions.html', {"positions":positions})
 
+def insertapikey(fname, apikey):
+    """put the google api key in a html file"""
 
+    def putkey(htmltxt, apikey, apistring=None):
+        """put the apikey in the htmltxt and return soup"""
+        if not apistring:
+            apistring = "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap"
+        soup = BeautifulSoup(htmltxt, 'html.parser')
+        body = soup.body
+        src = apistring % (apikey,)
+        tscript = soup.new_tag("script", src=src, async="defer")
+        body.insert(-1, tscript)
+        return soup
+
+    htmltxt = open(fname, 'r').read()
+    soup = putkey(htmltxt, apikey)
+    newtxt = soup.prettify()
+    open(fname, 'w').write(newtxt)
+
+def status(request):
+
+    from gmplot import gmplot
+    gmap = gmplot.GoogleMapPlotter(float(config('INIT_LAT')), float(config('INIT_LON')), 8)
+    gmap.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
+    marker_color ='#FF0000'
+
+    trackers = Tracker.objects.filter(tracked=True)
+    if trackers.count() ==0:
+        messages.error(request, "No tracker is being tracked now.")
+        return redirect('view:home')
+
+    for tracker in trackers:
+        position = Position.objects.filter(tracker=tracker).order_by('-created_at')[0]
+        if position is None:
+            lat= float(config('INIT_LAT'))
+            lon= float(config('INIT_LON'))
+            if tracker.is_online():
+                marker_color = '#00FF00'
+        else:
+            lat = position.lat
+            lon = position.lon
+
+        title = "Tracker: " + str(tracker.module_id) + "  Lat: " + str(lat) + "  Lon: " + str(lon) \
+                + "  Time: " + str(datetime.now(pytz.timezone('Asia/Dhaka')))
+        gmap.marker(lat, lon, marker_color, title=title)
+
+    # gmap.plot(lats, lons, 'cornflowerblue', edge_width=10)
+
+    mapfile = "/static/maps/map_status.html"
+    gmap.draw("view" + mapfile)
+
+    insertapikey("view" + mapfile, config('GMAP_API'))
+
+    return render(request, 'view/status.html', {"mapfile":mapfile})

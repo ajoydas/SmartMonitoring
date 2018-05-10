@@ -4,6 +4,7 @@ import string
 
 import numpy
 import pandas
+import pytz
 from bs4 import BeautifulSoup
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
@@ -42,7 +43,7 @@ class Tracker(models.Model):
             return False
         limit = int(config('TIME_RANGE'))
         last_updated = Position.objects.filter(tracker=self).order_by('-created_at')[0].created_at
-        now = datetime.now(timezone.utc)
+        now = datetime.now(pytz.timezone('Asia/Dhaka'))
 
         print("Now: "+str(now)+" Last updated: "+str(last_updated))
         if last_updated + timedelta(minutes = limit) > now:
@@ -62,28 +63,10 @@ class Tracker(models.Model):
         print("Generated Pass: "+self.password)
         self.save()
 
-    def insertapikey(self, fname, apikey):
-        """put the google api key in a html file"""
-
-        def putkey(htmltxt, apikey, apistring=None):
-            """put the apikey in the htmltxt and return soup"""
-            if not apistring:
-                apistring = "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap"
-            soup = BeautifulSoup(htmltxt, 'html.parser')
-            body = soup.body
-            src = apistring % (apikey,)
-            tscript = soup.new_tag("script", src=src, async="defer")
-            body.insert(-1, tscript)
-            return soup
-
-        htmltxt = open(fname, 'r').read()
-        soup = putkey(htmltxt, apikey)
-        newtxt = soup.prettify()
-        open(fname, 'w').write(newtxt)
-
     def gen_map(self):
-        if self.lat is None or self.lon is None or self.tracked == False:
-            return "None"
+        if self.lat is None or self.lon is None or self.lat ==0 or self.lon ==0 \
+                or self.tracked == False:
+            return None
 
         from gmplot import gmplot
         # Place map
@@ -109,7 +92,8 @@ class Tracker(models.Model):
         # Draw
         gmap.draw("view"+ mapfile)
 
-        self.insertapikey("view"+ mapfile, config('GMAP_API'))
+        from view.views import insertapikey
+        insertapikey("view"+ mapfile, config('GMAP_API'))
 
         return mapfile
 

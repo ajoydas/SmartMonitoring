@@ -9,6 +9,7 @@ app_name = 'view'
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'map/$', views.show_map, name='show_map'),
+    url(r'status/$', views.status, name='status'),
     url(r'tracker/add$', views.tracker_add, name='tracker_add'),
     url(r'tracker/(?P<tracker_id>(\d+))/view$', views.tracker_view, name='tracker_view'),
     url(r'tracker/(?P<tracker_id>(\d+))/edit$', views.tracker_edit, name='tracker_edit'),

@@ -1,0 +1,56 @@
+<html>
+ <head>
+  <meta content="initial-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Google Maps - pygmaps
+  </title>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&amp;sensor=true_or_false" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   function initialize() {
+		var centerlatlng = new google.maps.LatLng(23.810300, 90.412500);
+		var myOptions = {
+			zoom: 8,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+		var latlng = new google.maps.LatLng(23.234800, 90.536000);
+		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
+		var marker = new google.maps.Marker({
+		title: "Tracker: 2  Lat: 23.2348  Lon: 90.536  Time: 2018-05-11 03:22:42.308697+06:00",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(23.334800, 90.636000);
+		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
+		var marker = new google.maps.Marker({
+		title: "Tracker: 4  Lat: 23.3348  Lon: 90.636  Time: 2018-05-11 03:22:42.391351+06:00",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(23.726113, 90.388100);
+		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
+		var marker = new google.maps.Marker({
+		title: "Tracker: 34  Lat: 23.726113  Lon: 90.3881  Time: 2018-05-11 03:22:42.472410+06:00",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+	}
+  </script>
+ </head>
+ <body onload="initialize()" style="margin:0px; padding:0px;">
+  <div id="map_canvas" style="width: 100%; height: 100%;">
+  </div>
+  <script async="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnunZr4eykZ8mwe6VVYU4sSFprkSWDX4&amp;callback=initMap">
+  </script>
+ </body>
+</html>

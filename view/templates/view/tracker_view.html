@@ -83,6 +83,23 @@
                 <div class="col-sm-1"></div>
             </div>
             <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <label> Latitude : </label>
+                </div>
+                <div class="col-sm-2">
+                    {{ tracker.lat }}
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <label>Longitude: </label>
+                </div>
+                <div class="col-sm-2">
+                    {{ tracker.lon }}
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row" style="padding-top: 20px">
                 <div class="col"></div>
                 <div class="col" align="center">
                     <button class="btn btn-primary"
@@ -116,7 +133,7 @@
                 <img src="{{ graph1 }}">
             </div>
         {% endif %}
-        {% if tracker.tracked == True %}
+        {% if tracker.tracked == True or mapfile is not None %}
             <div style="margin-top: 20px">
                 <h5>Map:</h5>
             </div>

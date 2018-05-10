@@ -101,7 +101,11 @@
                                     <i class="fas fa-times" style="color:red"></i>
                                 {% endif %}
                             </td>
-                            <td align="center">{{ tracker.num_warnings }}</td>
+                            {% if tracker.num_warnings == 0 %}
+                                <td align="center" style="color: green">{{ tracker.num_warnings }}</td>
+                            {% else %}
+                                <td align="center" style="color: red">{{ tracker.num_warnings }}</td>
+                            {% endif %}
                             <td>
                                 <button class="btn btn-primary"
                                         onclick='location.href="{% url 'view:tracker_view' tracker.id %}"'

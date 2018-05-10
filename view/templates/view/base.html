@@ -23,10 +23,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view:gen_pass' %}">Generate Pass</a>
+                    <a class="nav-link" href="{% url 'view:status' %}">Status</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view:send_pass' %}">Send Pass</a>
+                    <a class="nav-link" href="{% url 'view:gen_pass' %}">Generate Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view:send_pass' %}">Send Password</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
