@@ -19,6 +19,8 @@ def validate_password(request, tracker, lat, lon, password):
     position = Position(tracker=tracker, lat=lat, lon=lon)
     position.save()
     if password == tracker.password:
+        tracker.locked = False
+        tracker.save()
         return HttpResponse("success")
 
     event = WarningEvent(position=position, password = password)
