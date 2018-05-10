@@ -1,11 +1,14 @@
 <html>
-<head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<title>Google Maps - pygmaps </title>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
-<script type="text/javascript">
-	function initialize() {
+ <head>
+  <meta content="initial-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Google Maps - pygmaps
+  </title>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&amp;sensor=true_or_false" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   function initialize() {
 		var centerlatlng = new google.maps.LatLng(23.534800, 90.236000);
 		var myOptions = {
 			zoom: 10,
@@ -41,20 +44,10 @@
 		});
 		marker.setMap(map);
 
-		var latlng = new google.maps.LatLng(23.134800, 90.636000);
-		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
-		var marker = new google.maps.Marker({
-		title: "Point: 3  Lat: 23.1348  Lon: 90.636  Time: 2018-05-04 08:22:40.286595+00:00",
-		icon: img,
-		position: latlng
-		});
-		marker.setMap(map);
-
 var PolylineCoordinates = [
 new google.maps.LatLng(23.534800, 90.236000),
 new google.maps.LatLng(23.334800, 90.436000),
 new google.maps.LatLng(23.234800, 90.536000),
-new google.maps.LatLng(23.134800, 90.636000),
 ];
 
 var Path = new google.maps.Polyline({
@@ -70,9 +63,12 @@ Path.setMap(map);
 
 
 	}
-</script>
-</head>
-<body style="margin:0px; padding:0px;" onload="initialize()">
-	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
-</body>
+  </script>
+ </head>
+ <body onload="initialize()" style="margin:0px; padding:0px;">
+  <div id="map_canvas" style="width: 100%; height: 100%;">
+  </div>
+  <script async="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnunZr4eykZ8mwe6VVYU4sSFprkSWDX4&amp;callback=initMap">
+  </script>
+ </body>
 </html>

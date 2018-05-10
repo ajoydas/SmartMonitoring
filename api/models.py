@@ -2,9 +2,13 @@ from datetime import datetime, timezone, timedelta
 import random
 import string
 
+import numpy
+import pandas
+from bs4 import BeautifulSoup
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from decouple import config
+from django.conf import settings as django_settings
 
 
 class Tracker(models.Model):
@@ -58,6 +62,25 @@ class Tracker(models.Model):
         print("Generated Pass: "+self.password)
         self.save()
 
+    def insertapikey(self, fname, apikey):
+        """put the google api key in a html file"""
+
+        def putkey(htmltxt, apikey, apistring=None):
+            """put the apikey in the htmltxt and return soup"""
+            if not apistring:
+                apistring = "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap"
+            soup = BeautifulSoup(htmltxt, 'html.parser')
+            body = soup.body
+            src = apistring % (apikey,)
+            tscript = soup.new_tag("script", src=src, async="defer")
+            body.insert(-1, tscript)
+            return soup
+
+        htmltxt = open(fname, 'r').read()
+        soup = putkey(htmltxt, apikey)
+        newtxt = soup.prettify()
+        open(fname, 'w').write(newtxt)
+
     def gen_map(self):
         if self.lat is None or self.lon is None or self.tracked == False:
             return "None"
@@ -86,7 +109,48 @@ class Tracker(models.Model):
         # Draw
         gmap.draw("view"+ mapfile)
 
+        self.insertapikey("view"+ mapfile, config('GMAP_API'))
+
         return mapfile
+
+    def gen_graph(self):
+        positions = Position.objects.filter(tracker= self).all()
+        if positions.count() < 1:
+            return None
+        from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+        from matplotlib.figure import Figure
+
+        fig = Figure(figsize=(9.5, 5.5))
+        ax = fig.add_subplot(111)
+
+        prev_pos = positions[0]
+        time_diff = []
+        # positions_id = [i for i in range(1,positions.count())]
+        for i in range(1, positions.count()):
+            diff_min = (positions[i].created_at - prev_pos.created_at).total_seconds() / 60.0
+            # print(diff_min)
+            time_diff.append(diff_min)
+            prev_pos = positions[i]
+
+        pd = pandas.DataFrame(data=time_diff)
+        x_pos = numpy.arange(positions.count()-1)
+
+        # ax.set_xticklabels(x_pos)
+        # ax.set_xticks(x_pos)
+
+        ax.plot(x_pos, pd[:][0].astype(float), label='Time Interval', color='b', marker='o')
+        ax.set_title('No. of Position')
+        ax.set_ylabel('Time Difference Between Consecutive Position ')
+        handles, labels = ax.get_legend_handles_labels()
+        lgd = ax.legend(handles, labels)
+        ax.grid('on')
+
+        canvas = FigureCanvas(fig)
+        graph1 = '/static/graphs/graph1_' + str(self.id)+'.jpg'
+        file1 = open('view'+graph1, 'wb')
+        canvas.print_png(file1)
+        file1.close()
+        return graph1
 
     def reset(self):
         self.lat = None

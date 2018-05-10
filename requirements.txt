@@ -8,3 +8,7 @@ gmplot
 django-phonenumber-field
 boto3
 python-decouple
+beautifulsoup4
+matplotlib
+pandas
+numpy

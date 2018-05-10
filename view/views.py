@@ -1,4 +1,5 @@
 from decouple import config
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -11,7 +12,21 @@ from django.contrib import messages
 def home(request):
     print("In home view")
     trackers = Tracker.objects.filter()
-    return render(request, 'view/home.html', {"trackers": trackers})
+    tracked_count = Tracker.objects.filter(tracked=True).count()
+
+    online_count = 0
+    for tracker in trackers:
+         if tracker.is_online() == True:
+            online_count+=1
+
+    locked_count =  Tracker.objects.filter(locked=True).count()
+
+    return render(request, 'view/home.html', {
+        "trackers": trackers,
+        "tracked_count": tracked_count,
+        "online_count": online_count,
+        "locked_count": locked_count,
+    })
 
 
 def show_map(request):
@@ -68,8 +83,12 @@ def tracker_add(request):
             tracker.tracked = form.cleaned_data.get('tracked')
             tracker.locked = form.cleaned_data.get('locked')
             tracker.contact_num = form.cleaned_data.get('contact_num')
-            tracker.save()
-            messages.success(request, 'The tracker is saved successfully.')
+
+            if tracker.tracked == False and tracker.locked == True:
+                messages.error(request, 'Tracked can\'t be locked if it is not being tracked.')
+            else:
+                tracker.save()
+                messages.success(request, 'The tracker is saved successfully.')
         else:
             messages.error(request, 'Submitted form is not valid. Please try again.')
     else:
@@ -80,7 +99,12 @@ def tracker_add(request):
 def tracker_view(request, tracker_id):
     tracker = get_object_or_404(Tracker, id=tracker_id)
     mapfile = tracker.gen_map()
-    return render(request, 'view/tracker_view.html', {'mapfile': mapfile, "tracker": tracker})
+    graph1 = tracker.gen_graph()
+    return render(request, 'view/tracker_view.html', {
+        'mapfile': mapfile,
+        'tracker': tracker,
+        'graph1': graph1
+    })
 
 
 def tracker_edit(request, tracker_id):
@@ -98,8 +122,11 @@ def tracker_edit(request, tracker_id):
             tracker.tracked = form.cleaned_data.get('tracked')
             tracker.locked = form.cleaned_data.get('locked')
             tracker.contact_num = form.cleaned_data.get('contact_num')
-            tracker.save()
-            messages.success(request, 'The tracker is saved successfully.')
+            if tracker.tracked == False and tracker.locked == True:
+                messages.error(request, 'Tracked can\'t be locked if it is not being tracked.')
+            else:
+                tracker.save()
+                messages.success(request, 'The tracker is saved successfully.')
         else:
             messages.error(request, 'Submitted form is not valid. Please try again.')
     else:
@@ -127,10 +154,6 @@ def tracker_reset(request, tracker_id):
     tracker.reset()
     messages.success(request, 'The tracker has been reset successfully.')
     return redirect('view:home')
-
-
-def add_contacts(request):
-    return None
 
 
 def gen_pass(request):

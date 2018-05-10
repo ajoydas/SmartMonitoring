@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'tracker/(?P<tracker_id>(\d+))/reset', views.tracker_reset, name='tracker_reset'),
     url(r'tracker/(?P<tracker_id>(\d+))/view_positions$', views.tracker_view_positions, name='tracker_view_positions'),
     url(r'position/(?P<position_id>(\d+))/delete', views.position_delete, name='position_delete'),
-    url(r'add_contacts/$', views.add_contacts, name='add_contacts'),
+    # url(r'add_contacts/$', views.add_contacts, name='add_contacts'),
     url(r'gen_pass/$', views.gen_pass, name='gen_pass'),
     url(r'send_pass/$', views.send_pass, name='send_pass'),
 ]

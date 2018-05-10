@@ -108,11 +108,21 @@
                 <div class="col"></div>
             </div>
         </div>
-        <div style="margin-top: 20px">
-            <h5>Map:</h5>
-        </div>
-        <div id="map" style="margin-bottom: 20px">
-        </div>
+        {% if graph1 != None %}
+            <div style="margin-top: 20px">
+                <h5>Time Difference Graph Between Consecutive Position Data:</h5>
+            </div>
+            <div>
+                <img src="{{ graph1 }}">
+            </div>
+        {% endif %}
+        {% if tracker.tracked == True %}
+            <div style="margin-top: 20px">
+                <h5>Map:</h5>
+            </div>
+            <div id="map" style="margin-bottom: 20px">
+            </div>
+        {% endif %}
     </div>
     <script>
         document.getElementById("map").innerHTML =
