@@ -7,12 +7,16 @@
 The Arduino script is on the `arduino` folder.
 
 #  Screenshots
+Add a tracker.
 <img src="screenshots/ss1.png">
 &nbsp;
+Main Dashboard
 <img src="screenshots/ss2.png">
 &nbsp;
+A tracker's details
 <img src="screenshots/ss3.png">
 &nbsp;
+All the unreached trackers' status
 <img src="screenshots/ss4.png">
 &nbsp;
 <img src="screenshots/ss5.png">
