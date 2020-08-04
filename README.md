@@ -6,6 +6,10 @@
 # Arduino File
 The Arduino script is on the `arduino` folder.
 
+### To run
+- Use the `.env.template` & populate the `.env` file
+- Replace the `$GMAP_API_KEY_HERE` in the `view/static/maps/map_status.html` file
+
 #  Screenshots
 Add a tracker
 <img src="screenshots/ss1.png">
