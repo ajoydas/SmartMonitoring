@@ -254,11 +254,11 @@ def insertapikey(fname, apikey):
     def putkey(htmltxt, apikey, apistring=None):
         """put the apikey in the htmltxt and return soup"""
         if not apistring:
-            apistring = "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap"
+            apistring = "https://maps.googleapis.com/maps/api/js?key=%s&callback"
         soup = BeautifulSoup(htmltxt, 'html.parser')
         body = soup.body
         src = apistring % (apikey,)
-        tscript = soup.new_tag("script", src=src, async="defer")
+        tscript = soup.new_tag("script", src=src, async=None, defer=None)
         body.insert(-1, tscript)
         return soup
 
@@ -280,13 +280,15 @@ def status(request):
         return redirect('view:home')
 
     for tracker in trackers:
-        position = Position.objects.filter(tracker=tracker).order_by('-created_at')[0]
-        if position is None:
+        positions = Position.objects.filter(tracker=tracker).order_by('-created_at')
+
+        if len(positions) == 0:
             lat= float(config('INIT_LAT'))
             lon= float(config('INIT_LON'))
             if tracker.is_online():
                 marker_color = '#00FF00'
         else:
+            position = positions[0]
             lat = position.lat
             lon = position.lon
 

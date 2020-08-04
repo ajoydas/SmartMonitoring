@@ -3,54 +3,36 @@
   <meta content="initial-scale=1.0, user-scalable=no" name="viewport"/>
   <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
   <title>
-   Google Maps - pygmaps
+   Google Maps - gmplot
   </title>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&amp;sensor=true_or_false" type="text/javascript">
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization" type="text/javascript">
   </script>
   <script type="text/javascript">
    function initialize() {
-		var centerlatlng = new google.maps.LatLng(23.810300, 90.412500);
-		var myOptions = {
-			zoom: 8,
-			center: centerlatlng,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        var map = new google.maps.Map(document.getElementById("map_canvas"), {
+            zoom: 8,
+            center: new google.maps.LatLng(23.810300, 90.412500)
+        });
 
-		var latlng = new google.maps.LatLng(23.234800, 90.536000);
-		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
-		var marker = new google.maps.Marker({
-		title: "Tracker: 2  Lat: 23.2348  Lon: 90.536  Time: 2018-05-11 03:22:42.308697+06:00",
-		icon: img,
-		position: latlng
-		});
-		marker.setMap(map);
+        var marker_icon_FF0000 = {
+            url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAiCAYAAACwaJKDAAAABmJLR0QA/wD/AP+gvaeTAAACBklEQVRIia3VzUtUURgH4GdG/AiyZZShtWgXUbSIFtGqRYtqWRLhXyBYf0K6MaJQ2gRtayHtijYpleHKSCgIcRHoIiOSKEzLKea0OOeqTfPlzPzg5Qwz9zz3nXPvPTeneo7gNA4gjyI+Ygbva8z9L2cxi9BHOE+4msY+gliz6biayWE0R7GfMEcoEkJJzRH6CbnY+WiaVxEc6yY8KQOVq8eE7tj1WCV4qIswUyeY1QyhK8JDpWAP1m7vEMzqTkTXkrOZkYOEQoNogXAowiPE2wQuDqC9nktZJu0YSE72XRs2phrsMqup2OkG2vLpRB19DXaZJc3vQHv294Um0e3z8yigsNQkmuYXUMie5/npJtE0fz55YLiXsNHELdUbV2B4+4n2Y/Vmg+itCK4m558MdhBe7hCcJnRGdLDS0ox3E17XCb4h7IngeLX1zuFhD2G5BriytY4Tqmx9WXbh3Tnl99KsLkdwAbtrgVmO4/eDCuCkzd3/TL1glru9hF8lYJFwMoKPdgrCXqzfL0GfR7CIo42gcO9YCXopolONgnAC4W0Cv9l8dVxpBoWFGwmdiOC6Glc8X+3HlKeT6cOzOLzAjyaaBBc602ZzOHZ6vVkQ9kl7Qi6ip1qBwpdrEfwjPnFVU8+awuKrOC7hZ6vQlQ9baM3Ui379HsfVVqKf07jcSvRTGhfrOfgvIP3ECS77BDoAAAAASUVORK5CYII=",
+            labelOrigin: new google.maps.Point(10, 11)
+        };
 
-		var latlng = new google.maps.LatLng(23.334800, 90.636000);
-		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
-		var marker = new google.maps.Marker({
-		title: "Tracker: 4  Lat: 23.3348  Lon: 90.636  Time: 2018-05-11 03:22:42.391351+06:00",
-		icon: img,
-		position: latlng
-		});
-		marker.setMap(map);
+        new google.maps.Marker({
+            position: new google.maps.LatLng(23.810300, 90.412500),
+            title: "Tracker: 1  Lat: 23.8103  Lon: 90.4125  Time: 2020-08-04 23:55:50.049215+06:00",
+            icon: marker_icon_FF0000,
+            map: map
+        });
 
-		var latlng = new google.maps.LatLng(23.726113, 90.388100);
-		var img = new google.maps.MarkerImage('http://www.googlemapsmarkers.com/v1/FF0000/');
-		var marker = new google.maps.Marker({
-		title: "Tracker: 34  Lat: 23.726113  Lon: 90.3881  Time: 2018-05-11 03:22:42.472410+06:00",
-		icon: img,
-		position: latlng
-		});
-		marker.setMap(map);
-
-	}
+    }
   </script>
  </head>
  <body onload="initialize()" style="margin:0px; padding:0px;">
   <div id="map_canvas" style="width: 100%; height: 100%;">
   </div>
-  <script async="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnunZr4eykZ8mwe6VVYU4sSFprkSWDX4&amp;callback=initMap">
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1wQPcpzcBIM79Smgy4yaOLMOVY7e3A8&amp;callback">
   </script>
  </body>
 </html>

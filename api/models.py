@@ -25,11 +25,14 @@ class Tracker(models.Model):
         if self.lat is None or self.lon is None or self.tracked == False:
             return False
 
-        limit = float(config('GEO_RANGE'))
-        last_entry = Position.objects.filter(tracker=self).order_by('-created_at')[0]
+        positions = Position.objects.filter(tracker=self).order_by('-created_at')
+        if len(positions) == 0:
+            return False
+        last_entry = positions[0]
         last_lat = last_entry.lat
         last_lon = last_entry.lon
 
+        limit = float(config('GEO_RANGE'))
         print("Dest: "+str(self.lat)+", "+str(self.lon)+" last entry: "+str(last_lat)+", "+str(last_lon))
         if (self.lat >= last_lat - limit and self.lat <= last_lat + limit) \
                 and (self.lon >= last_lon - limit and self.lon <= last_lon + limit):
@@ -42,7 +45,11 @@ class Tracker(models.Model):
         if self.lat is None or self.lon is None or self.tracked == False:
             return False
         limit = int(config('TIME_RANGE'))
-        last_updated = Position.objects.filter(tracker=self).order_by('-created_at')[0].created_at
+        positions = Position.objects.filter(tracker=self).order_by('-created_at')
+        if len(positions) == 0:
+            return False
+
+        last_updated = positions[0].created_at
         now = datetime.now(pytz.timezone('Asia/Dhaka'))
 
         print("Now: "+str(now)+" Last updated: "+str(last_updated))
@@ -72,7 +79,7 @@ class Tracker(models.Model):
         # Place map
         gmap = gmplot.GoogleMapPlotter(self.lat, self.lon, 10)
         gmap.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
-
+        gmap.apikey = config('GMAP_API')
         positions = Position.objects.filter(tracker=self)
         lats = []
         lons = []

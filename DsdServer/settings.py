@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'DsdServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dsd',
-        'USER': 'ajoy',
-        'PASSWORD': 'ajoysheart',
-        'HOST': 'do.ajoydas.com',  # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db',
     }
 }
 
