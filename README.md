@@ -7,23 +7,27 @@
 The Arduino script is on the `arduino` folder.
 
 #  Screenshots
-Add a tracker.
+Add a tracker
 <img src="screenshots/ss1.png">
-&nbsp;
+<br/><br/>
 Main Dashboard
 <img src="screenshots/ss2.png">
-&nbsp;
+<br/><br/>
 A tracker's details
 <img src="screenshots/ss3.png">
-&nbsp;
+<br/><br/>
 All the unreached trackers' status
 <img src="screenshots/ss4.png">
-&nbsp;
+<br/><br/>
+Generating unlocking password for the trackers
 <img src="screenshots/ss5.png">
-&nbsp;
+<br/><br/>
+Sending unlocking password to the trackers contact phone
 <img src="screenshots/ss6.png">
-&nbsp;
+<br/><br/>
+Update a tracker's info
 <img src="screenshots/ss7.png">
-&nbsp;
+<br/><br/>
+View a tracker's position list as well as warnings
 <img src="screenshots/ss8.png">
-&nbsp;
+<br/><br/>
