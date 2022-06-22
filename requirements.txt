@@ -20,7 +20,7 @@ kiwisolver==1.2.0
 Markdown==3.2.2
 matplotlib==3.3.0
 mysqlclient==2.0.1
-numpy==1.19.1
+numpy==1.22.0
 pandas==1.1.0
 phonenumbers==8.12.7
 Pillow==7.2.0
